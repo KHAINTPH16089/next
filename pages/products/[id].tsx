@@ -1,4 +1,5 @@
-import { GetStaticPathsContext, GetStaticProps } from 'next'
+import { data } from 'autoprefixer';
+import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next'
 import React from 'react'
 
 type productProps = {
@@ -7,14 +8,28 @@ type productProps = {
 
 const Detail = ({product}: productProps) => {
   return (
-    <div>Detail</div>
+    <div>{product.name}</div>
   )
 }
 
-export const getStaticProps: GetStaticProps<productProps> = async (context: GetStaticPathsContext) => {
+export const getStaticPaths: GetStaticPaths<productProps> = async () => {
+  const data = await (await fetch(`http://localhost:3001/products`)).json();
+  const id = data.map((item: any)=> {
+    return {
+      params: {id: item.id}
+    }
+  })
+  return {
+    paths: id,
+    fallback: false
+  }
+}
+
+export const getStaticProps: GetStaticProps<productProps> = async (context: GetStaticPropsContext) => {
+  const data = await (await fetch(`http://localhost:3001/products/${context.params?.id}`)).json();
   return {
     props: {
-      product: {}
+      product: data
     }
   }
 }

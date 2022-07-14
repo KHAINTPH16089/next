@@ -13,7 +13,7 @@ const Product = ({ products }: ProductsProps) => {
   return (
     <div>
       {products.map((item) => (
-        <div key={item.id}><Link href={`/products/${item.id}`}></Link> {item.name}</div>
+        <div key={item.id}><Link href={`/products/${item.id}`}>{item.name}</Link> </div>
       ))}
     </div>
   )
@@ -30,4 +30,5 @@ export const getStaticProps: GetStaticProps<ProductsProps> = async (context: Get
     }
   }
 }
+
 export default Product
