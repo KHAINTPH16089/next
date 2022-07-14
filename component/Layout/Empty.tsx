@@ -2,7 +2,7 @@ import React from 'react'
 import { LayoutProps } from '../../models/layout';
 
 
-const Layout = ({children}: LayoutProps) => {
+const LayoutEmpty = ({children}: LayoutProps) => {
   return (
     <>
         <div>{children}</div>
@@ -11,4 +11,4 @@ const Layout = ({children}: LayoutProps) => {
   )
 }
 
-export default Layout
+export default LayoutEmpty

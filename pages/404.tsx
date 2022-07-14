@@ -1,4 +1,5 @@
 import React from 'react'
+import LayoutEmpty from '../component/Layout/Empty'
 
 type Props = {}
 
@@ -7,5 +8,5 @@ const NotFound = (props: Props) => {
     <div>NotFound</div>
   )
 }
-NotFound.Layout = 
+NotFound.Layout = LayoutEmpty
 export default NotFound
