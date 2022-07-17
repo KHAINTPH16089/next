@@ -1,6 +1,7 @@
 import { data } from 'autoprefixer';
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next'
 import React from 'react'
+import LayoutAdmin from '../../component/Layout/admin';
 
 type productProps = {
   product: any;
@@ -33,4 +34,6 @@ export const getStaticProps: GetStaticProps<productProps> = async (context: GetS
     }
   }
 }
+
+Detail.layout = LayoutAdmin
 export default Detail
