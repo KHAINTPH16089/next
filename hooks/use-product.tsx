@@ -1,6 +1,6 @@
 import React from 'react'
 import useSWR from 'swr'
-import { add } from '../api/products';
+import { add, getProduct, removeProduct, updateProduct } from '../api/products';
 
 
 const useProducts = () => {
@@ -12,16 +12,28 @@ const useProducts = () => {
   }
 
   const remove = async (id: any) => {
-    const product = await remove(id)
+    await removeProduct(id)
     const newProduct = data.filter((item: any) => item.id != id)
-    mutate([newProduct])
+    mutate(newProduct)
+  }
+
+  const get = async (id: any) => {
+    const product = await getProduct(id)
+    mutate(product)
+  }
+
+  const update = async (id:any,item: any) => {
+    const product = await updateProduct(id, item)
+    mutate(product)
   }
 
   return{
     data,
     error,
     addProduct,
-    remove
+    remove,
+    get,
+    update
   }
 }
 

@@ -7,6 +7,7 @@ type productProps = {
   product: any;
 }
 
+
 const Detail = ({product}: productProps) => {
   return (
     <div>{product.name}</div>
