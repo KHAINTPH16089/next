@@ -21,7 +21,6 @@ const UpdateProducts = (props: productProps) => {
     hienThi()
     const onSubmit: SubmitHandler<product> = async (data) =>{
       update(props.product.id, data)
-      
     }
   return (
     <div>
