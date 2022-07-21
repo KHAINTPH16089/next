@@ -5,7 +5,7 @@ type Props = {}
 const About = (props: Props) => {
   return (
     <div>
-        alo alo
+        alo alo 123
     </div>
   )
 }
